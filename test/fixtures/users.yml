@@ -1,17 +1,49 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id         :integer          not null, primary key
+#  name       :string
+#  age        :string
+#  cpf        :string
+#  city       :string
+#  state      :string
+#  country    :string
+#  img        :string
+#  author     :string
+#  address    :string
+#  email      :string
+#  linkedin   :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
   name: MyString
+  age: MyString
+  cpf: MyString
+  city: MyString
+  state: MyString
+  country: MyString
   img: MyString
   author: MyString
   address: MyString
   email: MyString
   linkedin: MyString
+  user_id: 1
 
 two:
   name: MyString
+  age: MyString
+  cpf: MyString
+  city: MyString
+  state: MyString
+  country: MyString
   img: MyString
   author: MyString
   address: MyString
   email: MyString
   linkedin: MyString
+  user_id: 1

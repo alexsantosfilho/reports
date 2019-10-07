@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
- namespace 'api' do
-  	namespace 'v1' do
-  		resources :reports
-  	end
+  resources :hobbies
+  namespace :api do
+    resources :users
   end
 end
