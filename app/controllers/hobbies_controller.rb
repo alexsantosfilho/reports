@@ -15,7 +15,7 @@ class HobbiesController < ApplicationController
 
   # POST /hobbies
   def create
-    @hobby = Hobbie.new(hobby_params)
+    @hobby = Hobby.new(hobby_params)
 
     if @hobby.save
       render json: @hobby, status: :created, location: @hobby
@@ -41,11 +41,11 @@ class HobbiesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_hobby
-      @hobby = Hobbie.find(params[:id])
+      @hobby = Hobby.find(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.
     def hobby_params
-      params.require(:hobby).permit(:text, :img, :user)
+      params.require(:hobby).permit(:text, :img, :user_id)
     end
 end
