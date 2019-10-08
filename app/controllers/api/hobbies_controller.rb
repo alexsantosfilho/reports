@@ -1,9 +1,11 @@
-class HobbiesController < ApplicationController
-  before_action :set_hobby, only: [:show, :update, :destroy]
+# frozen_string_literal: true
+
+class Api::HobbiesController < ApplicationController
+  before_action :set_hobby, only: %i[show update destroy]
 
   # GET /hobbies
   def index
-    @hobbies = Hobbie.all
+    @hobbies = Hobby.all
 
     render json: @hobbies
   end
@@ -16,9 +18,8 @@ class HobbiesController < ApplicationController
   # POST /hobbies
   def create
     @hobby = Hobby.new(hobby_params)
-
     if @hobby.save
-      render json: @hobby, status: :created, location: @hobby
+      render json: @hobby
     else
       render json: @hobby.errors, status: :unprocessable_entity
     end
@@ -39,13 +40,14 @@ class HobbiesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_hobby
-      @hobby = Hobby.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def hobby_params
-      params.require(:hobby).permit(:text, :img, :user_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_hobby
+    @hobby = Hobby.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def hobby_params
+    params.require(:hobby).permit(:text, :img, :user_id)
+  end
 end

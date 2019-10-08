@@ -32,7 +32,6 @@ one:
   address: MyString
   email: MyString
   linkedin: MyString
-  user_id: 1
 
 two:
   name: MyString
@@ -46,4 +45,3 @@ two:
   address: MyString
   email: MyString
   linkedin: MyString
-  user_id: 1
