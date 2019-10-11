@@ -37,6 +37,10 @@ Rails.application.configure do
   # Raise an error on page load if there are pending migrations.
   config.active_record.migration_error = :page_load
 
+  #Java Report
+  config.x.report_host = 'http://localhost:8080/sgt2-reports-ws'
+  config.x.file_manager_host = 'http://java-back-dev.sgt2.com.br/filemanager.v2-web/rest'
+
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true

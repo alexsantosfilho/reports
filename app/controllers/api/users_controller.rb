@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Api::UsersController < ApplicationController
   before_action :set_user, only: [:show, :update, :destroy]
 
@@ -12,16 +14,15 @@ class Api::UsersController < ApplicationController
   def show
     render json: @user
   end
-  
-			def create
-				@user = User.new(user_params)
-				if @user.save
-					render json: @user
-				else
-					render json: @user.errors, status: :unprocessable_entity
-				end
-			end
-  
+
+  def create
+    @user = User.new(user_params)
+    if @user.save
+      render json: @user
+    else
+      render json: @user.errors, status: :unprocessable_entity
+    end
+  end
 
   # PATCH/PUT /users/1
   def update
@@ -38,12 +39,14 @@ class Api::UsersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_user
-      @user = User.find(params[:id])
-    end
-    # Only allow a trusted parameter "white list" through.
-    def user_params
-      params.require(:user).permit(:id, :name, :age, :cpf, :city, :country, :state, :img, :author, :address, :email, :linkedin, :user_id)
-    end
+
+  # Use callbacks to share common setup or constraints between actions.
+  def set_user
+    @user = User.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def user_params
+    params.require(:user).permit(:id, :name, :age, :cpf, :city, :country, :state, :img, :author, :address, :email, :linkedin, :user_id)
+  end
 end
